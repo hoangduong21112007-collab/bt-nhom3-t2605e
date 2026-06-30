@@ -1,68 +1,389 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VietGo Travel</title>
-    <link rel="stylesheet" href="css/app.css">
+<!DOCTYPE html><html class="light" lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>VietGo Travel - Khám phá vẻ đẹp Việt Nam</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/app.css">
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary": "#9d4300",
+                "background": "#f7f9fb",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f7f9fb",
+                "outline": "#6c7a71",
+                "secondary-fixed": "#ffdbca",
+                "on-surface": "#191c1e",
+                "on-error": "#ffffff",
+                "surface-container": "#eceef0",
+                "on-secondary-fixed": "#341100",
+                "primary-container": "#10b981",
+                "inverse-surface": "#2d3133",
+                "surface": "#f7f9fb",
+                "inverse-on-surface": "#eff1f3",
+                "surface-container-high": "#e6e8ea",
+                "on-secondary": "#ffffff",
+                "secondary-container": "#fd761a",
+                "on-tertiary-fixed": "#002117",
+                "tertiary-container": "#71af97",
+                "surface-variant": "#e0e3e5",
+                "error-container": "#ffdad6",
+                "on-primary-container": "#00422b",
+                "on-secondary-container": "#5c2400",
+                "on-error-container": "#93000a",
+                "on-primary-fixed-variant": "#005236",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-low": "#f2f4f6",
+                "primary": "#006c49",
+                "inverse-primary": "#4edea3",
+                "outline-variant": "#bbcabf",
+                "surface-dim": "#d8dadc",
+                "on-tertiary-fixed-variant": "#0b513d",
+                "tertiary": "#2b6954",
+                "on-tertiary-container": "#004231",
+                "on-surface-variant": "#3c4a42",
+                "tertiary-fixed-dim": "#95d3ba",
+                "primary-fixed-dim": "#4edea3",
+                "on-primary-fixed": "#002113",
+                "surface-tint": "#006c49",
+                "tertiary-fixed": "#b0f0d6",
+                "secondary-fixed-dim": "#ffb690",
+                "on-tertiary": "#ffffff",
+                "primary-fixed": "#6ffbbe",
+                "surface-container-highest": "#e0e3e5",
+                "on-secondary-fixed-variant": "#783200",
+                "on-background": "#191c1e",
+                "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "gutter": "20px",
+                "sm": "8px",
+                "lg": "24px",
+                "md": "16px",
+                "base": "4px",
+                "xs": "4px",
+                "xl": "40px",
+                "container-max": "1280px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "caption": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "label-md": ["Inter"]
+            },
+            "fontSize": {
+                "headline-lg": ["32px", {"lineHeight": "1.25", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fb;
+            color: #191c1e;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>VietGo Travel</h1>
-            <nav>
-                <a href="#">Trang chủ</a>
-                <a href="#">Điểm đến</a>
-                <a href="#">Du lịch</a>
-                <a href="#">Liên hệ</a>
-            </nav>
-        </div>
-    </header>
-    <!-- BANNER -->
-    <section class="banner">
-        <div class="overlay">
-            <h2>Cẩm Nang Du Lịch</h2>
-            <p>
-                Khám phá vẻ đẹp tiềm ẩn và những kinh nghiệm quý báu cho hành trình xuyên Việt của bạn.
-            </p>
-        </div>
-    </section>
-    <!-- BÀI VIẾT -->
-    <section class="container blog">
-        <div class="card">
-            <img src="imgs/anh 1.jpg" alt="Hạ Long">
-            <div class="content">
-                <span class="category">Cẩm nang</span>
-                <h3>Vịnh Hạ Long - Kỳ quan thiên nhiên thế giới</h3>
-                <p>
-                    Khám phá vẻ đẹp của Vịnh Hạ Long với
-                    những hòn đảo đá vôi kỳ vĩ.
-                </p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="imgs/anh 2.jpg" alt="Sa Pa">
-            <div class="content">
-                <span class="category">Văn hóa</span>
-                <h3>Mùa lúa chín ở Sa Pa</h3>
-                <p>
-                    Những thửa ruộng bậc thang vàng óng tạo nên bức tranh tuyệt đẹp.
-                </p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="imgs/anh 4_DL.jpg" alt="Đà Lạt">
-            <div class="content">
-                <span class="category">Du lịch</span>
-                <h3>Khám phá Đà Lạt mộng mơ</h3>
-                <p>
-                    Thành phố ngàn hoa với khí hậu mát mẻ quanh năm.
-                </p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <p>2026 VietGo Travel</p>
-    </footer>
-</body>
-</html>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between h-20 px-8">
+
+    <h1 class="text-3xl font-bold text-primary">
+      <img src="./imgs/logo.jpg" alt="VietGo Travel Logo" class="h-8 w-auto" style="margin-right: 34px;width: 400px;height: 100px;">
+    </h1>
+
+    <nav class="flex gap-10 text-lg font-medium">
+      <a href="#">Trang chủ</a>
+      <a href="#">Điểm đến</a>
+      <a href="#">Tour du lịch</a>
+      <a href="#">Khuyến mãi</a>
+      <a href="#">Liên hệ</a>
+    </nav>
+
+    <button class="bg-primary text-white px-8 py-3 rounded-full">
+      Đặt Tour
+    </button>
+
+  </div>
+</header>
+<main class="pt-[80px]">
+<!-- Hero Banner -->
+<section class="relative h-[850px]">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A breathtaking panoramic view of Ha Long Bay at sunrise with majestic limestone karsts rising from emerald green waters. The sky is a blend of soft oranges and pinks, casting a warm golden glow over the serene landscape. Traditional wooden junk boats are anchored in the calm bay, reflecting the tranquil and adventurous mood. The visual style is crisp, vibrant, and professional, echoing a high-end Vietnamese travel brand aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuATE7H0kQdTCAmTj5SjWtlLMBf0gqCaSKtrQ1SHRX5mrYCBRRhyZGQESwT31vU7tGSiZrbz6I_5kTo5uUumWR51PuY8EJnezZCdlbA54YV5AbRT0rwbCaCsHBsDYn9f46_uqSasp2eMxyrLQDeTBN4MkPJfMPEAs4Vc4sc6i_3o1JMAX-P3woTUXppc5TXaxb0GdOFxuko-ysNY-ucw-YQYabfPAlPqWC6pG-icuPzfUXyEL4nozJQBF4Vv4OiPe2mroCuh7JNsf0Hn')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+</div>
+<div class="relative z-10 p-lg mb-xl w-full">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary mb-md max-w-[280px]">
+                    Khám phá vẻ đẹp Việt Nam cùng VietGo Travel
+                </h2>
+<p class="text-on-primary/90 text-body-md mb-lg">Trải nghiệm những hành trình bản địa đích thực.</p>
+</div>
+</section>
+<!-- Search Box (Floating overlap) -->
+<section class="px-md -mt-10 relative z-20">
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_15px_30px_rgba(0,0,0,0.08)] flex items-center gap-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-tertiary" data-icon="search">search</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-body-md placeholder:text-on-surface-variant" placeholder="Bạn muốn đi đâu?" type="text">
+<button class="w-10 h-10 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+</section>
+<!-- Điểm đến nổi bật -->
+<section class="mt-xl">
+<div class="px-md flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Điểm đến nổi bật</h3>
+<button class="text-primary text-label-md font-label-md">Xem tất cả</button>
+</div>
+<div class="flex overflow-x-auto gap-md px-md hide-scrollbar">
+<!-- Sapa -->
+<div class="flex-shrink-0 w-40">
+<div class="h-52 w-full rounded-xl overflow-hidden relative shadow-[0_15px_30px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A lush, green terraced rice field in Sa Pa, Northern Vietnam, under a soft morning mist. The landscape is vibrant emerald green, symbolizing freshness and adventure. Small ethnic minority villages are scattered on the hillsides. The lighting is diffused and ethereal, creating a peaceful yet inspiring atmosphere for a premium travel experience." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDOdEihwd9-dm8Nor3JsqssRSrsOtdqFEbvRQIpEp9nyqOhPDrxit_YBUqqSfGCQ793ktm4AO1swWZn_k0aU8LvJ2Ow48UQGVtWkuVrHZEB7AN-wEYsUMyiUe2q56cdzWL9tfDigZJRT20BywJy39Ai3MMKtWrgqjTP78zEUOF-MgmXYDbOWuYo74vwL_P0V3YZFmrlxLo56VFmveH_AE83R2uWmhhqRTL1-LthootIUVSoeo0P4zlx488DPT8zF7nuaBODN2Cizm_V')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<span class="absolute bottom-3 left-3 text-on-primary font-bold text-body-md">Sapa</span>
+</div>
+</div>
+<!-- Đà Nẵng -->
+<div class="flex-shrink-0 w-40">
+<div class="h-52 w-full rounded-xl overflow-hidden relative shadow-[0_15px_30px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="The iconic Golden Bridge in Da Nang held by giant stone hands emerging from the lush greenery of Ba Na Hills. The bridge is illuminated by bright afternoon sunlight, highlighting its metallic golden sheen against the deep forest greens. The overall aesthetic is modern, majestic, and culturally proud, capturing a world-class travel destination." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBU1ZYFiQrb_1Wctdg3ygfXRZpWH5RQaeaheWga6gERLimWfOEOxYUX39aieD_1UgBlf3xyt0yV319udZAHocW7yY4krn2HB7CGKX1fd9_SNAEhWMmG-ld29tz90TvJcWr_A__XM3rMVQAUV9vnfwgQjKnFgD-S760zlVhUEa3t1rrX68b3GDFWikMzg2LQ2TBnT58IIF04Eby89uzAJ69mcZElB7IkfM-cf3YE1dascivxEjWxPcMKt9V7IK6vTQ7kYhysrVxKhzQ-')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<span class="absolute bottom-3 left-3 text-on-primary font-bold text-body-md">Đà Nẵng</span>
+</div>
+</div>
+<!-- Phú Quốc -->
+<div class="flex-shrink-0 w-40">
+<div class="h-52 w-full rounded-xl overflow-hidden relative shadow-[0_15px_30px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A pristine white-sand beach in Phu Quoc with crystal clear turquoise water and swaying palm trees. The scene is captured in high-key lighting, emphasizing a clean, refreshing, and minimalist coastal vibe. Vibrant coral reefs are visible beneath the water surface, suggesting a paradise for authentic relaxation and exploration." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAP2e7qbtLQFR2AdcOYjfj4DyBMKlw3ca3EVSWK_X6a4iGA_YpuOuwgeHhE7x4-0vvwP0iHgD8likDGUblN9U9loTC3n9FIX8c_lqzvVYObHvR5mql3fXnWQV59TklxPJUoRv-Y0XnTYl-4q74P7-8OedTHkKj6TqBGszWBHMnIHEpFASl1OgkYHtmjp3oexFMm6M956Ev9ERC8m9Xl6kzvJr1d-Nf7HYRnHnJIAZY8j_C35tqynoUlZAYGAwH6VRS7eYREQBE1ETHn')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<span class="absolute bottom-3 left-3 text-on-primary font-bold text-body-md">Phú Quốc</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Tour yêu thích -->
+<section class="mt-xl px-md">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Tour yêu thích</h3>
+<div class="flex flex-col gap-lg">
+<!-- Tour 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="h-48 w-full bg-cover bg-center" data-alt="A scenic boat tour along the Ngo Dong River in Ninh Binh, passing between towering limestone mountains and lush yellow rice fields. The atmosphere is serene and tactile, with the boat's ripple on the water being a central focal point. Warm, late-afternoon sun creates long shadows and deep green tones, evoking a sense of ancient Vietnamese heritage." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDVMIAxGODCeM9R_kLy4pXkyquiLJVwNGm5kDY-F6P0baJ1JX18trsmH88TD3UpRGm3XAYq2WhBlFhKOisSXbzqUUZH4itcpBHBLGDpaFsxMjCrOQICYmP09TsC4m0bHbJ3yRJjLuQPYWlbmYmk7a71XGfNwMJe2heUFGo2pZQZMHjVZpseYugVmS4lBmcVAcb4oVrqrqmPOA123f2HZ4LZxxicOCs0qUc3NGRiueN9B1Nk9NevK0a_MPVtuCb4cP3Lcmvj9J2dNEFw')"></div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-base">
+<h4 class="font-bold text-body-lg text-on-surface">Vẻ đẹp Tràng An - Ninh Bình</h4>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-caption font-bold">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-caption mb-md">3 ngày 2 đêm • Khám phá di sản</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold text-body-lg">3.250.000đ</span>
+<button class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-md">Chi tiết</button>
+</div>
+</div>
+</div>
+<!-- Tour 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="h-48 w-full bg-cover bg-center" data-alt="Night market in Hoi An Ancient Town, illuminated by hundreds of colorful traditional silk lanterns. The warm orange and red glows reflect on the cobblestone streets and dark river water. The mood is energetic, cultural, and intimate. Professional photography capturing the rich textures and heritage of a historical Vietnamese trading port." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDIe01Uow-J37sHbZ_9Oah8wNNHeq2tprlz2khxny49JllGFh75p6kCjcUbpE4bAc30K6NZZULm8VuqVMKQGyeg1473AoA7f5JTVwblsnf5nPunn1HCl7Z2og3NKdHAkMp746fm-KFVWDzx9XWu3NfMqbfS2n79Hu4ow9KWueMWO4iEVvVIGHMDjiXFjhNt6yD3gM2Q33cOA4ISQLBBxuD1IAd1Ox8WqjhWCYEE71SIOwcIKeYdcVRt2QgerZY6yrptda9Tofe1KHge')"></div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-base">
+<h4 class="font-bold text-body-lg text-on-surface">Phố cổ Hội An về đêm</h4>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-caption font-bold">4.8</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-caption mb-md">2 ngày 1 đêm • Trải nghiệm văn hóa</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold text-body-lg">1.890.000đ</span>
+<button class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-md">Chi tiết</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ưu điểm VietGo -->
+<section class="mt-xl px-md py-xl bg-primary/5">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg text-center">Tại sao chọn VietGo?</h3>
+<div class="grid grid-cols-2 gap-lg">
+<div class="text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<h5 class="font-bold text-body-md text-primary">Giá tốt nhất</h5>
+<p class="text-caption text-on-surface-variant">Cam kết giá cạnh tranh nhất</p>
+</div>
+<div class="text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<h5 class="font-bold text-body-md text-primary">Dịch vụ 24/7</h5>
+<p class="text-caption text-on-surface-variant">Hỗ trợ khách hàng mọi lúc</p>
+</div>
+<div class="text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+</div>
+<h5 class="font-bold text-body-md text-primary">Tour đa dạng</h5>
+<p class="text-caption text-on-surface-variant">Hơn 100+ tour mỗi tháng</p>
+</div>
+<div class="text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<h5 class="font-bold text-body-md text-primary">Thanh toán an toàn</h5>
+<p class="text-caption text-on-surface-variant">Bảo mật thông tin tuyệt đối</p>
+</div>
+</div>
+</section>
+<!-- Đánh giá khách hàng -->
+<section class="mt-xl mb-12">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md px-md">Khách hàng nói gì</h3>
+<div class="flex overflow-x-auto gap-md px-md hide-scrollbar">
+<div class="flex-shrink-0 w-[280px] bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/10 italic">
+<div class="flex gap-xs mb-sm text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-lg">"Chuyến đi Sapa cùng VietGo thật sự rất tuyệt vời. Hướng dẫn viên nhiệt tình, lịch trình hợp lý."</p>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-cover bg-center" data-alt="Professional headshot of a happy young Vietnamese woman traveler, smiling warmly. She is in a casual outdoor setting with soft natural sunlight. The image is bright, high-quality, and conveys authentic joy and satisfaction. The color palette is natural and warm, fitting the friendly brand identity of VietGo Travel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB46GeZo1HHkMf01R48un45r6gL0fYjkjYFDfn2bt7elD6P7-pGjfAN1Gd8rWX1CudFtZNzd3w3gkpVMEdrViYjNHKRas_YJqlT9ZsgDfVUNLTJEnN8kTog_v6F5NyV3klWM39dpZ8LK5cRMeac1x10Ppps_upz3_qwiA6doL88IDwNATuG-9XuPsBY8PfNSdoLzKJiah0ryCFqxpb7KZg0LzARarxGLjU0FufjgnKpCe9snNR77j3DNAUKTDbeF-zwXJB2zuk-XUoj')"></div>
+<div>
+<p class="font-bold text-body-md not-italic">Minh Anh</p>
+<p class="text-caption not-italic text-outline">Du khách từ Hà Nội</p>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-[280px] bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/10 italic">
+<div class="flex gap-xs mb-sm text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-lg">"Dịch vụ chuyên nghiệp từ khâu tư vấn đến khi kết thúc tour. Sẽ ủng hộ VietGo trong các chuyến đi tới."</p>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-cover bg-center" data-alt="Portrait of a middle-aged Vietnamese man with a friendly and satisfied expression. He is wearing modern travel attire, standing against a clean, minimalist background with soft lighting. The image suggests a professional and reliable experience, aligned with the 'Modern Minimalism with a Tactile Edge' design style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlH2E-E4b29Ehc-ksburaDX4-kyR05ByHUCYvvBCFqGCmYseMquwt0WnL15YuQ6PEVNfNnwNDEkxIthNbSDOsOY2JWBI6U78__2FuFpAW1nHnv5k9UTk-7sARU2VRdkfYp8WgXEJYXWTeypvIUwY8Ejc8OD3kKCKR8XH6V6cSwKZBtkf15TlX5ZrttZqTcltrLS2ER2sRZwz5-8mITjHcGK5DvzOcDUOHX1BQM3JUEupIiqrujNUFZ-aZblALUj3FEsloylR0zKfd-')"></div>
+<div>
+<p class="font-bold text-body-md not-italic">Hoàng Nam</p>
+<p class="text-caption not-italic text-outline">Du khách từ TP.HCM</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-on-surface text-surface py-xl px-md">
+<div class="mb-xl">
+<h2 class="text-headline-md font-bold text-primary mb-md">VietGo</h2>
+<p class="text-body-md text-surface-variant/80 mb-lg">Mang trải nghiệm du lịch Việt Nam đẳng cấp đến với mọi người.</p>
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="phone">phone</span>
+</div>
+</div>
+</div>
+<div class="border-t border-surface-variant/10 pt-lg text-center">
+<p class="text-caption text-surface-variant/60">© 2024 VietGo Travel. All Rights Reserved.</p>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-md pb-safe pt-sm bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.04)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-md font-label-md">Trang chủ</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-opacity">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-md font-label-md">Tìm kiếm</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-opacity">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="text-label-md font-label-md">Yêu thích</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-opacity">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md">Tài khoản</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.classList.add('opacity-70');
+            });
+            btn.addEventListener('touchend', function() {
+                this.classList.remove('opacity-70');
+            });
+        });
+
+        // Simple scroll reveal effect for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(section);
+        });
+    </script>
+</body></html>
